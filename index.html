@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>ex-dischi-musicali</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+      <!-- root -->
+      <div id="root">
+
+        <!-- header -->
+        <header>
+          <div class="container">
+            <img src="logo.png" alt="logo" />
+            <select v-model="selected">
+              <option disabled value=""> --Select the genre-- </option>
+              <option>All</option>
+              <option v-for="genre in genres">{{genre}}</option>
+            </select>
+          </div>
+
+        </header>
+        <!-- /header -->
+
+        <!-- main -->
+        <div class="cds-container container">
+
+          <!-- disk -->
+          <div class="cd" v-for="item in disks" v-if="item.genre === selected || selected === 'All'">
+            <img :src="item.poster" alt="">
+            <h3>{{item.title}}</h3>
+            <span class="author">{{item.author}}</span>
+            <span class="year">{{item.year}}</span>
+          </div>
+          <!-- /disk -->
+
+        </div>
+        <!-- /main -->
+
+      </div>
+      <!-- /root -->
+
+      <!-- script -->
+      <script src="main.js" charset="utf-8"></script>
+      <!-- script -->
+
+    </body>
+</html>
