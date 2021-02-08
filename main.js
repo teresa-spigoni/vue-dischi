@@ -3,7 +3,7 @@ new Vue({
   data: {
     disks: [],
     selected: '',
-    genres: []
+    genres: ['All']
   },
   mounted() {
     const self = this;

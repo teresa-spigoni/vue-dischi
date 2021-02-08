@@ -19,7 +19,6 @@
             <img src="logo.png" alt="logo" />
             <select v-model="selected">
               <option disabled value=""> --Select the genre-- </option>
-              <option>All</option>
               <option v-for="genre in genres">{{genre}}</option>
             </select>
           </div>
@@ -31,7 +30,7 @@
         <div class="cds-container container">
 
           <!-- disk -->
-          <div class="cd" v-for="item in disks" v-if="item.genre === selected || selected === 'All'">
+          <div class="cd" v-for="item in disks" v-if="item.genre === selected || selected === '' || selected === 'All'">
             <img :src="item.poster" alt="">
             <h3>{{item.title}}</h3>
             <span class="author">{{item.author}}</span>
